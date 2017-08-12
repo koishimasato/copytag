@@ -1,0 +1,10 @@
+{
+  "name": "copytag",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "koishi masato",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
+}

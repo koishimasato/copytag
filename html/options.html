@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <title>Auto Copy: Options</title>
+
+    <!--<script src="/js/jquery.tools.min.js"></script>-->
+    <script type="text/javascript" src="/js/options.js"></script>
+
+    <link rel="stylesheet" href="/css/options.css" type="text/css">
+  </head>
+
+  <body>
+    <h1>
+      <img id="logo" src="/assets/autoCopy-64.png" width="64" height="64" alt="logo">
+      Auto Copy - Options
+    </h1>
+    <!--http://www.mdawson.net/csstips/purecsstabs.php-->
+    <div class="tabGroup">
+      <input type="radio" name="tabGroup1" id="rad1" class="tab1" checked="checked">
+      <label for="rad1">Settings</label>
+      <input type="radio" name="tabGroup1" id="rad2" class="tab2">
+      <label for="rad2">Blacklist</label>
+      <input type="radio" name="tabGroup1" id="rad3" class="tab3">
+      <label for="rad3">About</label>
+
+      <br>
+
+      <div class="tab tab1">
+        <input class="autosave" type="checkbox" id="aoc"> <label for="aoc">Alert on copy</label>
+        <br>
+        <input class="autosave" type="checkbox" id="rsoc"> <label for="rsoc">Remove selection on copy</label>
+        <br>
+        <input class="autosave" type="checkbox" id="eitb"> <label for="eitb">Enable in text boxes</label>
+        <br>
+        <!---->
+	<input class="autosave" type="checkbox" id="pomc"> <label for="pomc">Paste on middle click</label>
+        <br>
+	<input class="autosave" type="checkbox" id="dc"> <label for="dc">
+		Press <select class="autosave" id="dck">
+			<option value="ctrl">CTRL</option>
+			<option value="shift">Shift</option>
+		</select>
+		key while selecting to disable Auto Copy
+	</label>
+        <br>
+	<input class="autosave" type="checkbox" id="acal"> <label for="cal">Press ALT to copy as HTML link</label>
+        <br>
+	<input class="autosave" type="checkbox" id="cal"> <label for="cal">Always copy as HTML link <span class="note">(Note: Copy wihtout formatting and Include an information comment cannot be used with Copy as HTML Link and visa versa)</label>
+        <br>
+	<input class="autosave" type="checkbox" id="capt"> <label for="capt">Copy without formatting <span class="note">(Note: Chrome v43 started supporting copy with formating again.  If this is not available it will fallback to copy without formating.)</span></label>
+	<br>
+	<input class="autosave" type="checkbox" id="iurl"> <label for="iurl">Include an informational comment</label>
+        <div id="diviurlap" class="indent">
+          <input class="autosave" type="checkbox" name="iurlewc" id="iurlewc"> <label for="iurlewc"><span id="commentCount" >Only include the comment if more than <input class="autosave" title="Valid values are 1 to 99" type="text" maxlength="2" size="1" id="iurlcount" value="5"> words are selected</span></label>
+          <br>
+	  <input class="autosave" type="radio" name="iurlap" id="iurlp"> <label for="iurlp">Add the comment to the beginning of the copied text</label>
+          <br>
+	  <input class="autosave" type="radio" name="iurlap" id="iurla" checked="checked"> <label for="iurla">Add the comment to the end of the copied text</label>
+          <br>
+          Format: <input class="autosave" type="text" size="64" id="iurltext" value="$crlfCopied from: $title - <$url>"> <span class="note">(Default: $crlfCopied from: $title - <$url>)</span>
+          <div class="indent note larger">
+            The comment can contain the following variables:
+            <br>
+            <div class="indent">
+              <b>$title</b> - Document title 
+              <div class="indent">Example: <b>stratus nine: auto copy</b></div>
+              <br>
+              <b>$url</b> - Document URL
+              <div class="indent">Example: <b>http://stratusnine.com/software/auto-copy/</b></div>
+              <br>
+              <b>$crlf</b> - Inserts a blank line
+            </div>
+          </div>
+    
+        </div>
+        <br>
+        <!--
+        <button id="saveButton">Save &amp; Close</button>
+        -->
+      </div>
+      <div class="tab tab2">
+        <!--
+        <select id="blsel" multiple="multiple" size="5">
+          <option value="docs.google.com">docs.google.com</option>
+        </select>
+        -->
+        <div id="blacklist">
+        </div>
+        <div>
+          Some sites, like Google Docs, have issues with Auto Copy.  The blacklist allows you to define sites (or pages) that Auto Copy will be disabled on.
+        </div>
+        <div class="clear">
+          <button id="addBtn">Add New Entry</button>
+          <button id="removeBtn">Remove Selected Entries</button>
+        </div>
+      </div>
+      <div class="tab tab3">
+        <p><a target="_blank" href="http://stratusnine.com/software/auto-copy/">Auto Copy</a> is a Chrome extension that will automatically copy any selected text to the clipboard.</p>
+
+        <h2>Features</h2>
+        <p>Auto Copy has several features that are configurable from the options page:</p>
+
+        <ul>
+          <li>Enable/disable auto copy for text fields</li>
+          <li>Include a comment with copied text. The comment can be formated and has macro expansion.</li>
+          <li>Paste on middle-click</li>
+          <li>Blacklists to allow disabling of the extension on certain websites</li>
+        </ul>
+
+        <h2>Notes</h2>
+        <p>The extension only works on pages with http:// or https:// in the URL. Also, content-scripts are automatically disabled in the Chrome Web Store for security reasons. Please keep this in mind when testing the extension.</p>
+
+        <p>When an option is changed, web pages must be reloaded before the changed option will take effect.</p>
+
+        <h2>Donate</h2>
+	<p>If you like this extension please consider donating a little to help support the development effort.  Thanks!</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+	
+
+        <h2>Contact</h2>
+	<p>If you have a feature request, bug fix, or general feedback please feel free to get in touch with me on <!--<a target="_blank" href="https://twitter.com/stratus9">twitter</a> or --><a target="_blank" href="mailto:autocopy@jamiehill.com">email</a>.
+      </div>
+    </div>
+    <div id="overlay">
+      <div>
+        <input type="radio" name="blacklistType" id="blacklistDomain" checked="checked"> <label for="blacklistDomain">Blacklist entire domain</label>
+	-OR-
+        <input type="radio" name="blacklistType" id="blacklistURL"> <label for="blacklistURL">Blacklist a specific page</label>
+	<div id="addError"></div>
+        <input type="text" id="domaintext">
+	<br>
+        <button id="addOverlayBtn">Add</button>
+        <button id="cancelOverlayBtn">Close</button>
+      </div>
+    </div>
+  </body>
+</html>

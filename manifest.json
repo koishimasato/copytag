@@ -1,0 +1,27 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name"                   : "Copy Tag",
+  "description"            : "copy as tag",
+  "version"                : "1.0.0",
+  "icons"                  : {
+    "16"  : "assets/copyTag-16.png"
+  },
+  "manifest_version" : 2,
+  "minimum_chrome_version" : "59",
+  "permissions"            : [
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background"             : {
+    "page": "html/background.html",
+    "persistent" : false
+  },
+  "content_scripts"        : [{
+    "matches"    : ["http://*/*", "https://*/*"],
+    "css"        : [],
+    "js"         : ["js/copyTag.js"],
+    "run_at"     : "document_end",
+    "all_frames" : false
+  }]
+}
